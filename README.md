@@ -8,3 +8,7 @@ Please install these modules.
 ```
 $ pip install tweepy
 ```
+
+# Access Token
+
+You have to get an access token for using APIs. Please read thi page https://dev.twitter.com/oauth/overview

@@ -8,12 +8,23 @@ import SearchWord   # hand-made external file
 MECAB_MODE = 'mecabrc'
 PARSE_TEXT_ENCODING = 'utf-8'
 
+### DATA
+words = {}
+
 ### Functions                                                                                                                                                     
 def main():
-    tweets = SearchWord.getTweet(query="レシピ",limit=10)
-    text = tweets[0]
-    words_dict = parse(text)
-    print "Nouns:", ",".join(words_dict)
+    # getting list
+    tweets = SearchWord.getTweet(query="レシピ",limit=3000)
+
+    for tweet in tweets:
+        if "http" in tweet:
+            tweet = tweet.split("http",1)[0] # deleting urls
+        if "RT " in text:
+            tweet = tweet.split(":",1)[1] # deleting RTs
+        nouns = parse(tweet)
+        counter(nouns)
+
+    sortdict(words)
     return
 
 

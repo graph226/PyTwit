@@ -14,4 +14,5 @@ def getTweet(query,limit=100):
     for tweet in tweepy.Cursor(api.search,q=query).items(limit):
         result.append(tweet.text)
 
+    # return list of tweets
     return result

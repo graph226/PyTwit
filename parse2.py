@@ -44,6 +44,18 @@ def parse(unicode_string):
         node = node.next
     return nouns
 
+def counter(wordlist):
+    for word in wordlist:
+        words[word] = words.get(word, 0) + 1
+
+def sortdict(dct):
+    tmp = [(v,k) for k,v in dct.items()]
+    tmp.sort()
+    tmp.reverse()
+
+    for count, word in tmp[:50]:
+        print count, word
+
 ### Execute                                                                                                                                                       
 if __name__ == "__main__":
     main()
